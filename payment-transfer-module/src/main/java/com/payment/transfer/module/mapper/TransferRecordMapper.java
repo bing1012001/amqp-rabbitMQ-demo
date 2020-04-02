@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface TransferRecordMapper {
 
@@ -17,5 +19,8 @@ public interface TransferRecordMapper {
 
     @Update("UPDATE transfer_record SET status = #{status} WHERE message_id = #{messageId}")
     public void updateTransferRecord(TransferRecord transferRecord);
+
+    @Select("SELECT * FROM transfer_record WHERE status = #{status}")
+    public List<TransferRecord> findTransferRecordsByStatus(String status);
 
 }
