@@ -12,7 +12,7 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual
-        concurrency: 3
+        concurrency: 1
         max-concurrency: 5
 #    template:
 #      mandatory: true # if want to use return feather, mandatory must be true

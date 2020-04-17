@@ -23,6 +23,7 @@ public class AmqpConsumerService {
         log.info("---------{}", book.toString());
         Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
         log.info("------------delivery tag {}", deliveryTag);
+        channel.basicQos(1); //this is used for fair dispatcher
         channel.basicAck(deliveryTag, false);
     }
 
