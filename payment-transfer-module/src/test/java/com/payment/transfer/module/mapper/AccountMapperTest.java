@@ -36,8 +36,10 @@ public class AccountMapperTest {
 
     @Test
     public void accountAddTest() {
-        Account account = Account.builder().userId(UUID.randomUUID().toString()).amount(1000).updateTime(Timestamp.valueOf(LocalDateTime.now())).build();
-        accountMapper.AddNewAccount(account);
+        Account account = Account.builder().userId(UUID.randomUUID().toString()).amount(1200).updateTime(Timestamp.valueOf(LocalDateTime.now())).build();
+        int i = accountMapper.AddNewAccount(account);
+        Assert.assertEquals(1, i);
+
 
     }
 

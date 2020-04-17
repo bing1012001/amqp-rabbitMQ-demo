@@ -10,10 +10,10 @@ import org.apache.ibatis.annotations.Update;
 public interface AccountMapper {
 
     @Update("UPDATE  account SET amount = #{amount}, update_time = #{updateTime}")
-    public void updateAccount(Account account);
+    public int updateAccount(Account account);
 
     @Insert("INSERT INTO account (user_id, amount, update_time) VALUES (#{userId}, #{amount}, #{updateTime})")
-    public void AddNewAccount(Account account);
+    public int AddNewAccount(Account account);
 
     @Select("SELECT * FROM account WHERE user_id = #{userId}")
     public Account getAccountInfo(String userId);
